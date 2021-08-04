@@ -7,7 +7,7 @@ These were tested under Windows 10 .
 
 **1.Download python program**
 
-Python installation Website link : https://www.python.org/downloads/ 
+Python 3.6.4 installation Website link : https://www.python.org/downloads/ 
 
 It is important to specify the two conditions to avoid problems
 
@@ -15,7 +15,7 @@ It is important to specify the two conditions to avoid problems
 ![70](https://user-images.githubusercontent.com/86648269/128063092-5f536844-7a8a-47fd-bd12-16458630b560.png)
 
 
-Then we press Custom
+Then  press Custom
 
 ![71](https://user-images.githubusercontent.com/86648269/128063115-19526ca3-8ae2-485f-9d43-0825ad5cdf70.png)
 
@@ -39,16 +39,36 @@ pip install opencv-python
 
 **3.uploaded Face Detect file**
 
-**4.Download codes**
+
+**4.Run the code below in PyCharm**
 
 ```
-pip install Django 
+import cv2
+
+cap = cv2.VideoCapture(0)
+cascade_classifier = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+while True:
+
+    ret, frame = cap.read()
+    gray = cv2.cvtColor(frame, 0)
+    detections = cascade_classifier.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
+
+    if(len(detections) > 0 ):
+        (x, y, w, h) = detections[0]
+        frame = cv2.rectangle(frame, (x,y), (x+w, y+h), (255,0,0), 2)
+
+    cv2.imshow('frame', frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
 
 ```
 
-**5.Run the Completed file To run the program**
 
-  ** Results** 
+  **6.Results** 
   
   ![74](https://user-images.githubusercontent.com/86648269/128072430-b770934f-8faf-4118-90bc-a86a24a5e925.png)
 
