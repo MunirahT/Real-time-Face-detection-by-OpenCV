@@ -26,7 +26,7 @@ Then select all the Python packages
 ![73](https://user-images.githubusercontent.com/86648269/128063301-654351a9-5543-400e-8fac-8ac000f7ad13.png)
 
 
-**2.download OpenCV**
+**2.Download OpenCV**
 
 By typing commands in terminal
 
@@ -37,7 +37,7 @@ pip install opencv-python
 
 ```
 
-**3.uploaded Face Detect file**
+**3.Uploaded Face Detect file**
 
 
 **4.Run the code below in PyCharm**
